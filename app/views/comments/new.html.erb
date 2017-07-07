@@ -1,2 +1,17 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+
+
+<%= render "layouts/navbar" %>
+<%= render "layouts/header" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <%= image_tag @product.image.url(:medium) %>
+      <h3>Add comment</h3>
+      <%= simple_form_for [@product, @comment], url: product_comments_path(@product) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :content %>
+        <%= f.submit class: 'btn btn-success'%>
+      <% end %>
+    </div>
+  </div>
+</div>
