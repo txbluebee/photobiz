@@ -1,0 +1,15 @@
+<%= render "layouts/navbar" %>
+<%= render "layouts/header" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Edit Product Info</h3>
+      <%= simple_form_for [@product], url: product_path(@product) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :image, as: :file %>
+        <%= f.submit class: 'btn btn-success'%>
+      <% end %>
+    </div>
+  </div>
+</div>
