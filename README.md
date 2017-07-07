@@ -29,9 +29,9 @@ Miles of Smiles is the small business site including basic user authentication f
 
 
 ### Further Exploration
-- [x] Custom CSS styling
-- [x] Add validation to product cost
-- [x] User can favorite the products
+- [] Custom CSS styling
+- [] Add validation to product cost
+- [] User can favorite the products
 
 ## Prerequisites & Installation
 
