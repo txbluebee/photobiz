@@ -11,7 +11,6 @@ describe "add new product" do
     fill_in 'Name', :with=>'test product'
     fill_in 'Price', :with => '9.99'
     fill_in 'Description', :with=>'test description'
-    attach_file "Image", "spec/assets/img/img1.jpeg"
     click_on 'Create Product'
   end
 
