@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "add new image" do
+describe "add new product" do
 
   before(:each) do
     User.destroy_all
