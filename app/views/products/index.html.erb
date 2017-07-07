@@ -3,14 +3,18 @@
 <div class="album text-muted">
   <div class="container">
     <div class="row">
-      <% @products.each do |product|  %>
-        <div class="card">
-          <%= link_to product do %>
-            <%= image_tag product.image.url(:medium) %>
-              <p class="card-text"> <b><%= product.name %></b></p>
-          <% end %>
-          <!-- <p class="card-text"> <b><%= product.name %></b></p> -->
-        </div>
+      <% if @products.any? %>
+        <% @products.each do |product|  %>
+          <div class="card">
+            <%= link_to product do %>
+              <%= image_tag product.image.url(:medium) %>
+                <p class="card-text"> <b><%= product.name %></b></p>
+            <% end %>
+            <!-- <p class="card-text"> <b><%= product.name %></b></p> -->
+          </div>
+        <% end %>
+      <% else %>
+        <h3>No Products added yet.</h3>
       <% end %>
     </div>
   </div>
