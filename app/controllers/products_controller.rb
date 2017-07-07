@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show] 
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @products = Product.all
   end
@@ -36,6 +36,9 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
+    @product.comments.each do |comment|
+      comment.destroy
+    end  
     @product.destroy
     redirect_to products_path, notice: 'Product successfully deleted'
   end
@@ -43,6 +46,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:image, :name, :description)
+    params.require(:product).permit(:image, :name, :description, :price)
   end
 end

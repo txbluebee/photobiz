@@ -5,6 +5,7 @@
     <div class="col-sm-6">
       <h1> <%=  @product.name %></h1>
       <%= image_tag @product.image.url(:medium) %>
+      <p>$ <%= @product.price %></p>
       <p><%= @product.description %></p>
     </div>
   </div>
@@ -15,7 +16,13 @@
 <hr>
   <div class="comments-section">
     <h3>Comments</h3>
-    <%= link_to 'leave a comment', new_product_comment_path(@product) %>
+
+    <!-- Only Login Users Can Leave Comments -->
+    <% if current_user %>
+      <%= link_to 'leave a comment', new_product_comment_path(@product) %>
+    <% end %>
+
+    <!-- Show Comments -->
     <% if @product.comments.any? %>
     <ul>
       <% @product.comments.each do |comment| %>
