@@ -7,8 +7,9 @@
         <div class="card">
           <%= link_to product do %>
             <%= image_tag product.image.url(:medium) %>
+              <p class="card-text"> <b><%= product.name %></b></p>
           <% end %>
-          <p class="card-text"> <b><%= product.name %></b></p>
+          <!-- <p class="card-text"> <b><%= product.name %></b></p> -->
         </div>
       <% end %>
     </div>
