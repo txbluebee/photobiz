@@ -15,6 +15,26 @@
  */
  @import "bootstrap";
 
+
+.cover {
+  background: url('cover.jpg') no-repeat center center;
+  background-size: cover;
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .cover-caption {
+    padding: 1rem 5rem;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    text-align: center;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+}
+
+
  /* RESPONSIVE CSS
 -------------------------------------------------- */
 
