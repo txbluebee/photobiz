@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @product = Product.find(params[:product_id])
     @comment = @product.comments.new(comment_params)
     if @comment.save
-      redirect_to @product, notice: "Comment successfully added!"
+      redirect_to @product, success: "Comment successfully added!"
     else
       render :new
     end
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     @product = Product.find(params[:product_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to @product, notice: 'Comment successfully deleted'
+    redirect_to @product, warning: 'Comment successfully deleted'
   end
 
   private
