@@ -9,6 +9,9 @@
       <li class="nav-item active">
         <%= link_to 'Our Products', products_path, class: 'nav-link'  %>
       </li>
+      <li class="nav-item active">
+        <%= link_to 'Profile', account_path(current_user), class: 'nav-link'  %>
+      </li>
       <% if current_user && current_user.role == 'admin' %>
         <li class="nav-item active">
           <%= link_to 'Add Product', new_product_path, class: 'nav-link'  %>
@@ -16,7 +19,7 @@
       <% end %>
   </div>
   <span class="navbar-brand">
-    <%= link_to 'Cart', cart_path %>: <%= current_order.order_items.count %> | Total: <%= current_order.calculate_total %>
+    <%= link_to 'Cart', cart_path %>: <%= current_order.order_items.count %> | Total: $<%= current_order.calculate_total %>
     <% if user_signed_in? %>
       <%= current_user.username %> | <b><%= current_user.role %></b> | <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%>
     <% else %>

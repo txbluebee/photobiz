@@ -15,7 +15,9 @@
  */
  @import "bootstrap";
 
-
+img{
+  width: 200px;
+}
 .cover {
   background: url('cover.jpg') no-repeat center center;
   background-size: cover;

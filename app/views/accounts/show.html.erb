@@ -1,0 +1,21 @@
+<%= render "layouts/navbar" %>
+<%= render "layouts/header" %>
+
+<h3>Order History:</h3>
+
+
+<% @orders.completed_orders.each do |order| %>
+  <h5>Order #<%= order.id %>:</h5>
+  <ul>
+    <% order.order_items.each do |item| %>
+    <li>
+      <%= item.product.name %><br>
+      <img src="<%= item.product.image %>" >
+      <br>
+      Qty: <%= item.quantity %>, <%= number_to_currency item.product.price %>/ea
+    </li>
+    <% end %>
+    <li>Total: <%= number_to_currency order.total_price %></li>
+  </ul>
+  <hr>
+<% end %>

@@ -4,6 +4,8 @@ class Order < ApplicationRecord
   before_save :update_total
   before_create :update_status
 
+  scope :completed_orders, -> { where(status: 'completed')}
+
   def calculate_total
     self.order_items.collect { |item| item.product.price * item.quantity }.sum
   end
