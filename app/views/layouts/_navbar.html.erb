@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand navbar-inverse bg-inverse">
-  <a class="navbar-brand" href="/">MilesOfSmiles</a>
+  <a class="navbar-brand" href="/">PhotoBiz</a>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
@@ -16,6 +16,7 @@
       <% end %>
   </div>
   <span class="navbar-brand">
+    <%= link_to 'Cart', cart_path %>: <%= current_order.order_items.count %> | Total: <%= current_order.calculate_total %>
     <% if user_signed_in? %>
       <%= current_user.username %> | <b><%= current_user.role %></b> | <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%>
     <% else %>

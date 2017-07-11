@@ -35,6 +35,7 @@ gem 'bcrypt'
 gem 'faker'
 gem 'devise'
 gem 'paperclip'
+gem 'stripe'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
