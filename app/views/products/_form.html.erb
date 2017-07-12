@@ -1,8 +1,15 @@
 
-<%= simple_form_for [@product], url: products_path do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :image, as: :file %>
-  <%= f.submit class: 'btn btn-success'%>
-<% end %>
+<div class="container" id="productupdate">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Edit Product Info</h3>
+      <%= simple_form_for [@product], url: product_path(@product) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :price %>
+        <%= f.input :description %>
+        <%= f.input :image, as: :file %>
+        <%= f.submit class: 'btn btn-success'%>
+      <% end %>
+    </div>
+  </div>
+</div>
