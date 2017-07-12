@@ -1,0 +1,16 @@
+<%= render "layouts/navbar" %>
+<%= render "layouts/header" %>
+
+<h1>Check your favorites here!</h1>
+
+<%= link_to "New Favorite", new_favorite_path, id: "new_link" %>
+
+<h2>Not your favorites yet:</h2>
+<div class="favorites" id="incomplete_favorites">
+  <%= render @incomplete_favorites %>
+</div>
+
+<h2>Your favorites</h2>
+<div class="favorites" id="complete_favorites">
+  <%= render @complete_favorites %>
+</div>

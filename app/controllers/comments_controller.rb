@@ -9,7 +9,11 @@ class CommentsController < ApplicationController
     @product = Product.find(params[:product_id])
     @comment = @product.comments.new(comment_params)
     if @comment.save
-      redirect_to @product, success: "Comment successfully added!"
+      flash[:success] = "Comment successfully added"
+      respond_to do |format|
+        format.html { redirect_to @product }
+        format.js
+      end
     else
       render :new
     end

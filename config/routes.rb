@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-
+resources :favorites
   resources :products do
     resources :comments, except: [:index, :show]
   end

@@ -1,0 +1,4 @@
+$('#commentform').remove();
+
+$('#comments_list').append('<li> <%= @comment.content %> by <%= @comment.name %> | <% if current_user && current_user.role == "admin" %> <%= link_to "delete", product_comment_path(@product, @comment), :method =>"delete", :data => {:confirm => "You sure?"} %> <% end %> </li>');
+$('#product_comments').show();

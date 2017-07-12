@@ -16,30 +16,36 @@
       <% end %></p>
   </div>
   <% if current_user && current_user.role == 'admin' %>
-    <%= link_to 'Edit Product', edit_product_path, :class => 'btn btn-success'  %>
+    <%= link_to 'Edit Product', edit_product_path, :class => 'btn btn-success' %>
     <%= link_to 'Delete Product', @product, :method =>'delete', :data => {:confirm => 'You sure?'}, :class => 'btn btn-danger'%>
   <% end %>
 <hr>
   <div class="comments-section">
     <h3>Comments</h3>
 
-    <!-- Only Login Users Can Leave Comments -->
-    <% if current_user %>
-      <%= link_to 'leave a comment', new_product_comment_path(@product) %>
-    <% end %>
 
     <!-- Show Comments -->
-    <% if @product.comments.any? %>
-    <ul>
-      <% @product.comments.each do |comment| %>
-        <li> <%= comment.content %> by <%= comment.name %></li>
-        <% if current_user && current_user.role == 'admin' %>
-          <%= link_to 'delete comment', product_comment_path(@product,comment), :method =>'delete', :data => {:confirm => 'You sure?'} %>
-        <% end %>
+    <div id="product_comments">
+      <!-- Only Login Users Can Leave Comments -->
+      <% if current_user %>
+        <%= link_to 'leave a comment', new_product_comment_path(@product), id: 'new_comment_link', class: "btn btn-default", remote: true %>
       <% end %>
-    </ul>
-    <% else %>
-      <p> You will be first guest to leave comment!</p>
-    <% end %>
+
+
+      <% if @product.comments.any? %>
+      <ul id="comments_list">
+        <% @product.comments.each do |comment| %>
+          <li> <%= comment.content %> by <%= comment.name %> |
+            <% if current_user && current_user.role == 'admin' %>
+              <%= link_to 'delete', product_comment_path(@product,comment), :method =>'delete', :data => {:confirm => 'You sure?'}, remote: true %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <% else %>
+        <p> You will be first guest to leave comment!</p>
+      <% end %>
+    </div>
+
   </div>
 </div>

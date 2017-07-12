@@ -1,0 +1,12 @@
+<div id="commentform" class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Add comment</h3>
+      <%= simple_form_for [@product, @comment], url: product_comments_path(@product), remote: true  do |f| %>
+        <%= f.input :name %>
+        <%= f.input :content %>
+        <%= f.submit class: 'btn btn-success'%>
+      <% end %>
+    </div>
+  </div>
+</div>
