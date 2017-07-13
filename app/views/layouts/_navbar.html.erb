@@ -20,7 +20,7 @@
       <% end %>
   </div>
   <span class="navbar-brand">
-    <%= link_to 'Cart', cart_path %>: <%= current_order.order_items.count %> | Total: $<%= current_order.calculate_total %>
+    <%= link_to 'Cart', cart_path %>: <span id="cart-info"><%= current_order.order_items.count %> | Total: $<%= current_order.calculate_total %></span>
     <% if user_signed_in? %>
       <%= current_user.username %> | <b><%= current_user.role %></b> | <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%>
     <% else %>

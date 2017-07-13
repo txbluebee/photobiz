@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   root to: "home#index"
 
 resources :favorites
+
+namespace :admin do
+  resources :products
+end
+
+
   resources :products do
     resources :comments, except: [:index, :show]
   end
