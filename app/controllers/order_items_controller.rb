@@ -6,6 +6,7 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.new(item_params)
     @order.save
     session[:order_id] = @order.id
+    binding.pry
     respond_to do |format|
       format.js
     end
@@ -16,7 +17,10 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.find(params[:id])
     @item.destroy
     @order.save
-    redirect_to cart_path
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   private

@@ -1,0 +1,5 @@
+console.log('delete');
+console.log('<%= @item.id %>');
+$("#delete-<%= @item.id %>").remove()
+$("#total").html('Your Total: <%= number_to_currency current_order.total_price %>')
+$("#cart-info").html('<%= current_order.order_items.count %> | Total: $<%= current_order.calculate_total %>')

@@ -45,7 +45,11 @@ class ProductsController < ApplicationController
       comment.destroy
     end
     @product.destroy
-    redirect_to products_path, danger: 'Product successfully deleted'
+    respond_to do |format|
+      format.html { redirect_to products_path, danger: 'Product successfully deleted' }
+      format.js
+    end
+
   end
 
   private
